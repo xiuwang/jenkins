@@ -10,8 +10,14 @@
 default_version=$(cat /tmp/release.version)
 JENKINS_SLAVE_IMAGE_TAG=${JENKINS_SLAVE_IMAGE_TAG:-${default_version}}
 
+
 source /usr/local/bin/jenkins-common.sh
 source /usr/local/bin/kube-slave-common.sh
+
+
+echo "---> xxx Use custom certificate"
+KUBE_CA=/opt/openshift/configuration/kubeca.crt
+echo "${KUBE_CA}"
 
 shopt -s dotglob
 
